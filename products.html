@@ -1,34 +1,109 @@
 <!DOCTYPE html>
+<!-- 
+======================================================================
+Name: products.html
+Assignment: ENSF 381 -Assignment 1
+Created By Muhammad Ahmed UCID: 10190776, Petr Dubovsky UCID:
+Submission: Sun Jan 28, 2024
+Description: Sneaker catalog displaying products and their respective prices
+======================================================================
+-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Assignment 1 -HTML">
     <meta name="keywords" content="ENSF381-Assignment1">
-    <meta name="author" content="Muhammad Ahmed">
+    <meta name="author" content="Muhammad Ahmed, Petr Dubovsky">
     <title>Home</title>
+    
     <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="/ENSF381_Assignment_1/assets/logo.ico" type="image/x-icon">
 </head>
 <body>
     <header>
-        <img src="/ENSF_Assignment_1/assets/logo.png" alt="logo" width="100px">
-        <h1>Sneakers Paradise</h1>
+        <img src="/ENSF381_Assignment_1/assets/logo.png" alt="logo" width="200px">
+        <h1>Sneaker Paradise</h1>
     </header>
     <div>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
+        <ul class="nav-bar">
+            <li><a href="/ENSF381_Assignment_1/login.html">Login</a></li>
+            <li><a href="/ENSF381_Assignment_1/index.html">Home</a></li>
+            <li><a href="/ENSF381_Assignment_1/products.html">Sneaker Catalog</a></li>
+            <li><a href="/ENSF381_Assignment_1/contact.html">Contact</a></li>
         </ul>
     </div>
     <main>
-        <section class="about-us">
+        <!--Product prices and images retrieved from https://stockx.com/en-gb-->
+        <section class="product-catalog">
             <h2>About Us</h2>
-            <p>
-                Welcome to our website! Here's a little about us...
-                Sneaker Central is a catalog for shoes where users can interact with different models and leave their review and or experiences with select shoes. 
-            </p>
+            <table>
+                <tr>
+                    <td>
+                        <img src = "/ENSF381_Assignment_1/assets/products/AirJordan1UniversityBlue.png" alt="Air Jordan 1 Retro High University Blue" width="600px" height="450px">
+                        <h3>Air Jordan 1 Retro High University Blue</h3>
+                        <h1>CA$445</h1>
+                        <br>
+                        <button class="add-to_cart">
+                            Add to Cart
+                        </button>
+                    </td>
+                    <td>
+                        <img src = "/ENSF381_Assignment_1/assets/products/Jordan4RetroMotorsport.jpg" alt = "Air Jordan 4 Retro Motorsports (2017)" width="600px" height="450px">
+                        <h3>Air Jordan 4 Retro Motorsports (2017)</h3>
+                        <h1>CA$485</h1>
+                        <br>
+                        <button class="add-to_cart">
+                            Add to Cart
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <img src = "/ENSF381_Assignment_1/assets/products/NikeSBDunkLowTravisScott.png" alt="Nike SB Dunk Low Travis Scott" width="600px" height="450px">
+                        <h3>Nike SB Dunk Low Travis Scott</h3>
+                        <h1>CA$2,535</h1>
+                        <br>
+                        <button class="add-to_cart">
+                            Add to Cart
+                        </button>
+                    </td>
+                    <td>
+                        <img src = "/ENSF381_Assignment_1/assets/products/NewBalance550AimeLeonDore.png" alt = "New Balance 550 Aime Leon Dore Navy Red" width="600px" height="450px">
+                        <h3>New Balance 550 Aime Leon Dore Navy Red</h3>
+                        <h1>CA$209</h1>
+                        <br>
+                        <button class="add-to_cart">
+                            Add to Cart
+                        </button>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td>
+                    <img src = "/ENSF381_Assignment_1/assets/products/RickOwensDrkshdwBlackLuxorAbstract.png" alt="Rick Owens DRKSHDW Black Luxor High" width="600px" height="450px">
+                        <h3>Rick Owens DRKSHDW Black Luxor High</h3>
+                        <h1>CA$774</h1>
+                        <br>
+                        <button class="add-to_cart">
+                            Add to Cart
+                        </button>
+                    </td>
+                    <td>
+                        <img src = "/ENSF381_Assignment_1/assets/products/Yeezy_350_V2_Zebra.png" alt = "adidas Yeezy Boost 350 V2 Zebra" width="400px" height="450px">
+                        <h3>adidas Yeezy Boost 350 V2 Zebra</h3>
+                        <h1>CA$442</h1>
+                        <br>
+                        <button class="add-to_cart">
+                            Add to Cart
+                        </button>
+                    </td>
+                </tr>
+
+            </table>
         </section>
     </main>
+    <footer>
+        <p>Copyright Muhammad Ahmed, Petr Dubovsky</p>
+    </footer>
 </body>
 </html>

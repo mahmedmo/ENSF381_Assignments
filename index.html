@@ -3,8 +3,8 @@
 ======================================================================
 Name: index.html
 Assignment: ENSF 381 -Assignment 1
-Author(s): Muhammad Ahmed, Petr Dubovsky
-Submission: Wed Jan 24, 2024
+Created By Muhammad Ahmed UCID: 10190776, Petr Dubovsky UCID:
+Submission: Sun Jan 28, 2024
 Description: Index file that routes to other pages on the wesbite.
 ======================================================================
 -->
@@ -13,22 +13,23 @@ Description: Index file that routes to other pages on the wesbite.
     <meta charset="UTF-8">
     <meta name="description" content="Assignment 1 -HTML">
     <meta name="keywords" content="ENSF381-Assignment1">
-    <meta name="author" content="Muhammad Ahmed">
+    <meta name="author" content="Muhammad Ahmed, Petr Dubovsky">
     <title>Home</title>
-    <link rel="shortcut icon" href="ENSF381_Assignment_1/assets/logo.ico" type="image/x-icon">
+    
     <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="/ENSF381_Assignment_1/assets/logo.ico" type="image/x-icon">
 </head>
 <body>
     <header>
-        <img src="ENSF381_Assignment_1/assets/logo.png" alt="logo" width="100px">
-        <h1>Sneaker Central</h1>
+        <img src="/ENSF381_Assignment_1/assets/logo.png" alt="logo" width="200px">
+        <h1>Sneaker Paradise</h1>
     </header>
     <div>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
+        <ul class="nav-bar">
+            <li><a href="/ENSF381_Assignment_1/login.html">Login</a></li>
+            <li><a href="/ENSF381_Assignment_1/index.html">Home</a></li>
+            <li><a href="/ENSF381_Assignment_1/products.html">Sneaker Catalog</a></li>
+            <li><a href="/ENSF381_Assignment_1/contact.html">Contact</a></li>
         </ul>
     </div>
     <main>
@@ -36,10 +37,36 @@ Description: Index file that routes to other pages on the wesbite.
             <h2>About Us</h2>
             <p>
                 Welcome to our website! Here's a little about us...<br><br>
-                Sneaker Central is a catalog for shoes where users can interact with different models and leave their review and or experiences with select shoes.<br><br>
-                Users can also add shoes to their cart and we'll find the best price!
+                Sneaker Paradise is a catalog for shoes where users can interact with different models and leave their review and or experiences with select shoes.<br><br>
+                Users can also add shoes to their cart for the <b>best</b> price!
             </p>
         </section>
+        <section class="shop-now">
+            <form action="/ENSF381_Assignment_1/products.html">
+                <input type="submit" value="Shop Now" />
+            </form>
+        </section>
+        <section class="customer-reviews">
+            <h1>Sneaker Reviews</h1>
+            <h2>Review of 'Air Jordan 1 Retro High University Blue' Running Sneakers</h2>
+            <p><i>I recently purchased the 'Air Jordan 1 Retro High University Blue' running sneakers and I'm extremely satisfied. They offer exceptional comfort and support during my long runs. The breathable material keeps my feet cool and dry. However, I noticed that the color begins to fade slightly after a few washes, but overall, they're a great investment for serious runners.</i></p>
+
+            <h2>Review of 'Nike SB Dunk Low Travis Scott' Casual Sneakers</h2>
+            <p><i>The 'Nike SB Dunk Low Travis Scott' sneakers are a stylish addition to my wardrobe. The sleek design and variety of colors are a huge plus. They're comfortable for day-to-day wear and have decent arch support. But, the soles started to show wear quite quickly, and they're not ideal for wet conditions as the grip isn't as good as I expected.</i></p>
+
+            <h2>Review of 'New Balance 550 Aime Leon Dore Navy Red Training Sneakers</h2>
+            <p><i>I've been using the 'New Balance 550 Aime Leon Dore Navy Red' for my gym workouts, and they've been a game-changer. The stability and cushioning are perfect for weightlifting and high-impact exercises. However, they are a bit on the heavier side, which I found limits my agility during certain workouts.</i></p>
+
+            <h2>Review of 'Rick Owens DRKSHDW Black Luxor High' Walking Sneakers</h2>
+            <p><i>I bought the 'Rick Owens DRKSHDW Black Luxor High' walking sneakers for my daily walks. They're true to their name, offering comfort that lasts throughout the day. The memory foam insole is a nice touch. However, I find the design a bit outdated and wish they offered more modern, trendy styles.</i></p>
+
+            <h2>Review of 'Air Jordan 1 Retro High University Blue' Athletic Sneakers</h2>
+            <p><i>The 'Air Jordan 1 Retro High University Blue' athletic sneakers are decent for occasional runners. They have good shock absorption and a snug fit. But, they lack sufficient breathability, which becomes an issue during longer runs. Also, I noticed that the laces are of lower quality and needed replacement sooner than expected.</i></p>
+
+        </section>
     </main>
+    <footer>
+        <p>Copyright Muhammad Ahmed, Petr Dubovsky</p>
+    </footer>
 </body>
 </html>
