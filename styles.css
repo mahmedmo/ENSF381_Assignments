@@ -236,6 +236,8 @@ footer{
 }
 
 .contact-method {
+    display: flex;
+    flex-direction: column;
     background-color: #ddd;
     margin: 0px;
     padding: 0px;
@@ -273,7 +275,9 @@ footer{
 }
 
 .login-btn {
-    color:#4CAF50;
+    border: none;
+    color: white;
+    background-color:#4CAF50;
     padding: 10px;
     border-radius: 5px;
     margin: 10px;
@@ -281,6 +285,7 @@ footer{
 }
 
 .login-btn:hover {
+    border: none;
     background-color: #45A049;
     opacity: 1.0;
 }
