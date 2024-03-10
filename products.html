@@ -36,23 +36,23 @@ Description: Sneaker catalog displaying products and their respective prices
             <table>
                 <tr class="product-row-1">
                     <td>
-                        <div id = "product-1">
+                        <div id = "product-1" product-index = "1">
                         <img src = "assets/products/AirJordan1UniversityBlue.png" alt="Air Jordan 1 Retro High University Blue" width="600px" height="450px">
                         <h1>Air Jordan 1 Retro High University Blue</h1>
                         <p>CA$445</p>
                         <br>
-                        <button class="add-to_cart">
+                        <button class="shop-button">
                             Add to Cart
                         </button>
                         </div>
                     </td>
                     <td>
-                        <div id = "product-2">
+                        <div id = "product-2" product-index = "2">
                         <img src = "assets/products/Jordan4RetroMotorsport.png" alt = "Air Jordan 4 Retro Motorsports (2017)" width="600px" height="450px">
                         <h1>Air Jordan 4 Retro Motorsports (2017)</h1>
                         <p>CA$485</p>
                         <br>
-                        <button class="add-to_cart">
+                        <button class="shop-button">
                             Add to Cart
                         </button>
                         </div>
@@ -60,23 +60,23 @@ Description: Sneaker catalog displaying products and their respective prices
                 </tr>
                 <tr class="product-row-2">
                     <td>
-                        <div id = "product-3">    
+                        <div id = "product-3" product-index = "3">    
                     <img src = "assets/products/NikeSBDunkLowTravisScott.png" alt="Nike SB Dunk Low Travis Scott" width="600px" height="450px">
                         <h1>Nike SB Dunk Low Travis Scott</h1>
                         <p>CA$2,535</p>
                         <br>
-                        <button class="add-to_cart">
+                        <button class="shop-button">
                             Add to Cart
                         </button>
                         </div>
                     </td>
                     <td>
-                        <div id = "product-4">
+                        <div id = "product-4" product-index = "4">
                         <img src = "assets/products/NewBalance550AimeLeonDore.png" alt = "New Balance 550 Aime Leon Dore Navy Red" width="600px" height="450px">
                         <h1>New Balance 550 Aime Leon Dore Navy Red</h1>
                         <p>CA$209</p>
                         <br>
-                        <button class="add-to_cart">
+                        <button class="shop-button" >
                             Add to Cart
                         </button>
                         </div>
@@ -85,32 +85,101 @@ Description: Sneaker catalog displaying products and their respective prices
                 </tr>
                 <tr class="product-row-3">
                     <td>
-                        <div id = "product-5">
+                        <div id = "product-5" product-index = "5">
                     <img src = "assets/products/RickOwensDrkshdwBlackLuxorAbstract.png" alt="Rick Owens DRKSHDW Black Luxor High" width="600px" height="450px">
                         <h1>Rick Owens DRKSHDW Black Luxor High</h1>
                         <p>CA$774</p>
                         <br>
-                        <button class="add-to_cart">
+                        <button class="shop-button">
                             Add to Cart
                         </button>
                         </div>
                     </td>
                     <td>
-                        <div id = "product-6">
-                        <img src = "assets/products/Yeezy_350_V2_Zebra.png" alt = "adidas Yeezy Boost 350 V2 Zebra" width="400px" height="450px">
+                        <div id = "product-6" product-index = "6">
+                        <img src = "assets/products/Yeezy_350_V2_Zebra.png" alt = "adidas Yeezy Boost 350 V2 Zebra"  width = "600px" height="450px">
                         <h1>adidas Yeezy Boost 350 V2 Zebra</h1>
                         <p>CA$442</p>
                         <br>
-                        <button class="add-to_cart">
+                        <button class="shop-button">
                             Add to Cart
                         </button>
                     </div>
                     </td>
                 </tr>
-
             </table>
         </section>
     </main>
+    <script>
+        var main = document.getElementsByTagName("main");
+        var cartDiv = document.createElement("div");
+        cartDiv.setAttribute("style", "text-align: center;");
+        var cartHeader = document.createElement("h1");
+        cartHeader.setAttribute("style", "font-weight: bold; font-size: 40px;");
+        cartHeader.innerHTML = "Cart";
+        var cartItems = document.createElement("div");
+        cartItems.setAttribute("id", "cart-items");
+        cartItems.setAttribute("style", "display: inline-block;"); 
+        cartDiv.appendChild(cartHeader);
+        cartDiv.appendChild(cartItems);
+        main[0].appendChild(cartDiv);
+        if(cartDiv.querySelector("div").querySelector("h1") == null || cartDiv.querySelector("div").querySelector("h1").innerHTML == ""){
+            cartItems.innerHTML = `<h1 style="font-weight: normal;"> Cart is currently empty</h1>`;
+        }
+        let inCart = {};
+        document.querySelectorAll('.shop-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const productDiv = button.closest('div');
+            const productId = productDiv.getAttribute("product-index")
+            console.log(productId)
+            const productName = productDiv.querySelector('h1').textContent;
+            console.log(productName)
+            const productPrice = productDiv.querySelector('p').textContent;
+            console.log(productPrice)
+            if (inCart[productId]) {
+                inCart[productId].quantity += 1;
+            } else {
+                inCart[productId] = {
+                name: productName,
+                price: productPrice,
+                quantity: 1
+                }; 
+                
+            }
+            updateCart();
+            alert(`${productName} has been added to the cart.`)
+            });
+        });
+       function updateCart(){
+            cart = document.getElementById("cart-items")
+            cart.innerHTML = "";
+            for (productId in inCart) {
+                var productDiv = document.createElement("div");
+                var index = productId
+                console.log(inCart[productId])
+                productDiv.setAttribute("cart-id", index)
+                console.log(inCart[productId].name)
+                productDiv.innerHTML = `<div style="text-align: center;">
+                <h1 style="font-weight: normal; color: green; display: inline; margin-right: 10px;">${inCart[productId].name}</h1>
+                <h2 style="font-weight: normal; display: inline; margin-right: 10px;">${inCart[productId].price}</h2>
+                <h2 style="font-weight: normal; display: inline; margin-right: 10px;">x${inCart[productId].quantity}</h2>
+                <button class="shop-button" onclick="cartRemove(${productId})" onmouseover="this.style.backgroundColor = '#ff0000'" onmouseout="this.style.backgroundColor = ''" style="display: inline-block; margin-right: 10px;">Remove</button>
+                </div>`;
+                cart.appendChild(productDiv)
+            } 
+       }
+       function cartRemove(productId){
+        console.log(productId)
+            inCart[productId].quantity--;
+            if(inCart[productId].quantity == 0){
+                delete inCart[productId];
+            }
+            updateCart();
+            if(cartDiv.querySelector("div").querySelector("h1") == null || cartDiv.querySelector("div").querySelector("h1").innerHTML == ""){
+            cartItems.innerHTML = `<h1 style="font-weight: normal;"> Cart is currently empty</h1>`;
+            }
+       }
+    </script>
     <footer>
         <p>© 2024 Copyright Sneakers Paradise, Muhammad Ahmed, Petr Dubovsky</p>
     </footer>

@@ -127,7 +127,7 @@ footer{
    font-weight: bold;
    font-size: 30px;
 }
-.product-catalog button{
+.shop-button{
     background-color: #4CAF50;
     color: white;
     padding: 10px;
@@ -247,6 +247,7 @@ footer{
 .contact a:hover {
     color: #007BFF;
 }
+
 
 /*
     login.html
