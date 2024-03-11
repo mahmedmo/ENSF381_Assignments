@@ -82,7 +82,7 @@ Description: Signup form for users to sign up for the website
         }
 
         // Password validation
-        if (!password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/)) {
+        if (!password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?`\/~]).{8,}$/)) {
             invalidFields.push("Password");
         }
 
@@ -90,9 +90,8 @@ Description: Signup form for users to sign up for the website
         if (password !== confirmPassword) {
             invalidFields.push("Confirm Password");
         }
-
         // Email validation
-        if (!email.match(/^\S+@\S+\.\S+$/)) {
+        if (!email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)) {
             invalidFields.push("Email");
         }
 
@@ -100,9 +99,38 @@ Description: Signup form for users to sign up for the website
 
         messageDiv.style.display = "block";
         if (invalidFields.length > 0) {
-            // Display error message
-            messageDiv.innerHTML = "Invalid input in the following field(s): " + invalidFields.join(", ");
+            var userError = "";
+            var passError = "";
+            var passConfirmError = "";
+            var emailError = "";
             
+            if (invalidFields.includes("Username")) {
+                userError = `<b>Username</b><br><br>• Must be between 3 and 20 characters long.
+                <br><br>• Allowed characters: alphanumeric characters (letters A-Z, numbers 0-9), hyphens (-), and underscores (_).
+                <br><br>• Must start with a letter.
+                <br><br>• Cannot contain spaces or special characters other than hyphens and underscores.<br><br>`;
+            }
+            
+            if (invalidFields.includes("Password")) {
+                passError = `<b>Password</b><br><br>• Must be at least 8 characters long.
+                <br><br>• Must contain at least one uppercase letter, one lowercase letter, one number, and one special character.
+                <br><br>• Allowed special characters: !@#$%^&*()-_=+[]{}|;:'",.<>?/˜
+                <br><br>• Cannot contain spaces.<br><br>`;
+            }
+            
+            if (invalidFields.includes("Confirm Password")) {
+                passConfirmError = `<b>Confirm Password</b><br><br>• Must match the password entered in the password field.<br><br>`;
+            }
+            
+            if (invalidFields.includes("Email")) {
+                emailError = `<b>Email</b><br><br>• Must be a valid email address format (e.g., username@example.com).
+                <br><br>• Cannot contain spaces.
+                <br><br>• Must contain an "@" symbol followed by a domain name (.com, .net, .io).<br><br>`;
+            }
+            
+            let errorMessage = "Invalid input in the following field(s): <br><br>";
+           
+            messageDiv.innerHTML = errorMessage + userError + passError + passConfirmError + emailError;
         } else {
             // Display success message
             messageDiv.innerHTML = "Signup successful!";
