@@ -300,3 +300,55 @@ footer{
     color: #007BFF;
     text-decoration: underline;
 }
+
+/*
+    signup.html
+*/
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ddd;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px
+}
+
+.signup-form label {
+    display: block;
+    margin: 10px;
+}
+
+.signup-form input {
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px; 
+}
+
+.signup-btn {
+    border: none;
+    color: white;
+    background-color:#4CAF50;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    opacity: 0.5;
+}
+
+.signup-btn:hover {
+    border: none;
+    background-color: #45A049;
+    opacity: 1.0;
+}
+
+.signup-form a {
+    text-decoration: none;
+    margin: 10px;
+}
+
+.signup-form a:hover {
+    color: #007BFF;
+    text-decoration: underline;
+}

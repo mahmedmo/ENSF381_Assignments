@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!-- 
+======================================================================
+Name: login.html
+Assignment: ENSF 381 -Assignment 2
+Created By Muhammad Ahmed UCID: 10190776, Petr Dubovsky UCID: 30171229
+Submission: Wed Feb 21, 2024
+Description: Signup form for users to sign up for the website
+======================================================================
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Assignment 3">
+    <meta name="keywords" content="ENSF381-Assignment3">
+    <meta name="author" content="Muhammad Ahmed, Petr Dubovsky">
+    <title>Home</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="assets/logo.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <img id = "header-logo" src="assets/logo.png" alt="logo" width="200px">
+        <div id = "header-title">Sneaker Paradise</div>
+    </header>
+    <div class="nav-bar">
+            <a href="login.html">Login</a>
+            <a href="index.html">Home</a>
+            <a href="products.html">Sneaker Catalog</a>
+            <a href="contact.html">Contact</a>
+    </div>
+    <main>
+        <section class="signup-form">
+            <form action="#" method="post">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required placeholder="Enter your username">
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
+
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required placeholder="Confirm your password">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="password" required placeholder="Enter your email">
+
+                <button type="submit" class="signup-btn">Sign Up</button>
+            </form>
+           
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Copyright Sneakers Paradise, Muhammad Ahmed, Petr Dubovsky</p>
+    </footer>
+</body>
+<script>
+    var submitButton = document.getElementsByClassName("signup-btn")[0];
+    console.log(submitButton.innerHTML);
+    submitButton.setAttribute("type","button")
+    submitButton.setAttribute("onclick","signupAuth()")
+    
+    var messageDiv = document.createElement("div");
+    messageDiv.setAttribute("style", "border: 2px solid black; background-color: #f9f9f9; padding: 10px; margin: 20px;")
+    var main = document.getElementsByTagName("main")[0];
+    main.append(messageDiv);
+    messageDiv.style.display = "none";
+
+    function signupAuth() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirm-password").value;
+        var email = document.getElementById("email").value;
+
+        var invalidFields = [];
+
+        //Javascript regular expressions are used to validate the user inputs in the below 'if' statements
+
+        // Username validation
+        if (!username.match(/^[a-zA-Z][a-zA-Z0-9_-]{2,19}$/)) {
+            invalidFields.push("Username");
+        }
+
+        // Password validation
+        if (!password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/)) {
+            invalidFields.push("Password");
+        }
+
+        // Confirm Password validation
+        if (password !== confirmPassword) {
+            invalidFields.push("Confirm Password");
+        }
+
+        // Email validation
+        if (!email.match(/^\S+@\S+\.\S+$/)) {
+            invalidFields.push("Email");
+        }
+
+        console.log(invalidFields)
+
+        messageDiv.style.display = "block";
+        if (invalidFields.length > 0) {
+            // Display error message
+            messageDiv.innerHTML = "Invalid input in the following field(s): " + invalidFields.join(", ");
+            
+        } else {
+            // Display success message
+            messageDiv.innerHTML = "Signup successful!";
+            return
+        }
+    }
+</script>
+</html>
