@@ -14,28 +14,24 @@ import Footer from './Footer';
 import "./Productpage.css";
 const Productpage = () => {
   const [cartItems, setCartItems] = useState([]);
+  const [reload, setReload] = useState(true);
   useEffect(() => {
-
-    const storedCartItems = JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem('cartItems'))))
+    const data = localStorage.getItem('cartItems');
+    const storedCartItems = data ? JSON.parse(data) : [];
     setCartItems(storedCartItems);
-
-  }, []); // Runs only once on mount
+    setReload(true)
+  }, []);
 
   useEffect(() => {
+    if (cartItems.length <= 0 && reload) {
+      const data = localStorage.getItem('cartItems');
+      const storedCartItems = data ? JSON.parse(data) : [];
+      setReload(false)
+      setCartItems(storedCartItems);
+      return
+    }
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
-  }, [cartItems]); // Runs every time cartItems changes
-
-
-  // useEffect(() => {
-  //   const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-  //   console.log("AFTER GETTING: " + localStorage.getItem('cartItems'))
-  //   setCartItems(storedCartItems);
-  // }, []);
-
-  // useEffect(() => {
-  //   localStorage.setItem('cartItems', JSON.stringify(cartItems));
-  //   console.log("AFTER SETTING: " + localStorage.getItem('cartItems'))
-  // }, [cartItems]);
+  }, [cartItems, reload]);
 
   const handleAddToCart = (product) => {
     const exist = cartItems.find((item) => item.id === product.id);
@@ -67,18 +63,13 @@ const Productpage = () => {
   return (
     <div className="product-page">
       <Header />
-      <div className="shop-interface">
-        <div className='products'>
-          <ProductList onAddToCart={handleAddToCart} /></div>
-        <div className='cart'>
-          <h2 className='cart-header'>Shopping Cart</h2>
-          <Cart
-            cartItems={cartItems}
-            onRemove={handleRemoveItem}
-
-          />
-        </div>
-      </div>
+      <table className="shop-interface">
+        <tr>
+          <td className='products'><ProductList onAddToCart={handleAddToCart} /></td>
+          <td className='cart' style={{ verticalAlign: 'top' }}><h2 className='cart-header'>Shopping Cart</h2><Cart cartItems={cartItems}
+            onRemove={handleRemoveItem} /></td>
+        </tr>
+      </table>
       <Footer />
     </div>
   );

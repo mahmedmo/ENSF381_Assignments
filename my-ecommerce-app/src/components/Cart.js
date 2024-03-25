@@ -10,7 +10,6 @@ import React from 'react';
 import CartItem from './CartItem';
 import './Cart.css'
 const Cart = ({ cartItems, onRemove, onDecrease, onIncrease }) => {
-  console.log('Cart items in Cart component:', cartItems);
 
   const totalPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
