@@ -91,6 +91,7 @@ Description: Login form for users to sign into the website
                 messageDiv.innerHTML = "<p>Invalid username or password. Please try again.</p>"
             }
         })
+
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
             alert("API call was not successful.")

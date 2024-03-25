@@ -1,0 +1,26 @@
+.product-item {
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	width: 35%;
+}
+.add-cart {
+	width: 30%;
+}
+.product-img {
+	width: 100%;
+}
+.product-name {
+	margin: 2px;
+}
+.product-price {
+	margin: 2px;
+}
+
+.product-button {
+	width: 50%;
+}
+
+.product-description {
+	margin: 0px;
+}

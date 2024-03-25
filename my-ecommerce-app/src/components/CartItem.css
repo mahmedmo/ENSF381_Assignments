@@ -1,0 +1,17 @@
+.cart-item {
+	display: flex;
+	flex-direction: column;
+}
+p {
+	margin: 1px;
+	text-align: left;
+}
+.remove-item {
+	margin: 0px;
+
+	width: 25%;
+}
+.item-image {
+	float: left;
+	width: 70%;
+}
