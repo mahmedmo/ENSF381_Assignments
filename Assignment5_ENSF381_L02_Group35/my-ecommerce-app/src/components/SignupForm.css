@@ -1,0 +1,32 @@
+/* // <!-- 
+// ======================================================================
+// Assignment: ENSF 381 -Assignment 5
+// Created By Muhammad Ahmed UCID: 10190776, Petr Dubovsky UCID: 30171229
+// Submission: Tue Apr 2, 2024
+// ======================================================================
+// --> */
+.signup{
+    display: flex;
+    flex-direction: column;
+    align-content: start;
+    text-align: start;
+    margin-bottom: none;
+    
+}
+.signup-form{
+    margin-bottom: 2px;
+}
+h1{
+    margin-bottom: 2px;
+}
+button{
+    margin-bottom: 2px;
+}
+input{
+    margin-bottom: 2px;
+}
+.switch-button{
+   
+    width: fit-content;
+    text-align: start;
+}
